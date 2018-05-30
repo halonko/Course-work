@@ -1,0 +1,1 @@
+Упродовж цього тижня я втановлював останні оновлення Google Express API, проте, виявляється, цей АРІ закривається 10 квітня. Проводив додаткові пошуки АРІ, знайшовTravel payouts API. Також знайшов python wrapper https://github.com/karellens/travelpayouts-python . 

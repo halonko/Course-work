@@ -1,0 +1,205 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>httplib2.stations &#8212; Course-work-master  documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for httplib2.stations</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">httplib2.route_search</span> <span class="k">import</span> <span class="o">*</span>
+<span class="c1"># from main_fold.return_class.returning import Return</span>
+
+
+<div class="viewcode-block" id="StationArray"><a class="viewcode-back" href="../../httplib2.html#httplib2.stations.StationArray">[docs]</a><span class="k">class</span> <span class="nc">StationArray</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">HEAD</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0 (X11; Ubuntu; Linux x86_64;&#39;</span>
+                          <span class="s1">&#39; rv:59.0) Gecko/20100101 Firefox/59.0&#39;</span><span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_arr</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+<div class="viewcode-block" id="StationArray.add"><a class="viewcode-back" href="../../httplib2.html#httplib2.stations.StationArray.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">station</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param station:</span>
+<span class="sd">        :return: appends informaition to the list</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">station</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="StationArray.array"><a class="viewcode-back" href="../../httplib2.html#httplib2.stations.StationArray.array">[docs]</a>    <span class="k">def</span> <span class="nf">array</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: Basic data structure</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_arr</span></div>
+
+    <span class="k">def</span> <span class="nf">__delete__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param index: index of the element</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_arr</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_arr</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_arr</span><span class="p">)</span>
+
+<div class="viewcode-block" id="StationArray.get_station_num"><a class="viewcode-back" href="../../httplib2.html#httplib2.stations.StationArray.get_station_num">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_station_num</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param params: params for API,</span>
+<span class="sd">        consists of name of the place</span>
+<span class="sd">        :param headers: params of brouser</span>
+<span class="sd">        :return: station number, or personal identifier</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;https://booking.uz.gov.ua/train_search/station/&quot;</span><span class="p">,</span>
+                          <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="StationArray.get_stations"><a class="viewcode-back" href="../../httplib2.html#httplib2.stations.StationArray.get_stations">[docs]</a>    <span class="k">def</span> <span class="nf">get_stations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">st_list</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param st_list: list of stations names</span>
+<span class="sd">        :return: appends Station class instance</span>
+<span class="sd">         to initialized list</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">city</span> <span class="ow">in</span> <span class="n">st_list</span><span class="p">:</span>
+            <span class="n">param</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;term&quot;</span><span class="p">:</span> <span class="n">city</span><span class="p">}</span>
+            <span class="n">num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_station_num</span><span class="p">(</span><span class="n">param</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">HEAD</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Station</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="StationArray.get_to_another_city"><a class="viewcode-back" href="../../httplib2.html#httplib2.stations.StationArray.get_to_another_city">[docs]</a>    <span class="k">def</span> <span class="nf">get_to_another_city</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">st1</span><span class="p">,</span> <span class="n">st2</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param st1: departure station</span>
+<span class="sd">        :param st2: arrival station</span>
+<span class="sd">        :param time: Curtime() instance,</span>
+<span class="sd">        represents departure time</span>
+<span class="sd">        :param result: Result() instance</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">date</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">format_date</span><span class="p">()</span>
+        <span class="n">time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">format_time</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_stations</span><span class="p">([</span><span class="n">st1</span><span class="p">,</span> <span class="n">st2</span><span class="p">])</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">make_response</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">station_number</span><span class="p">(),</span>
+                                 <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">station_number</span><span class="p">(),</span> <span class="n">date</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span>
+        <span class="n">route_info</span><span class="p">,</span> <span class="n">new_date</span> <span class="o">=</span> <span class="n">make_route</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">route_info</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">st2</span><span class="p">,</span> <span class="n">new_date</span><span class="p">,</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="StationArray.region_across"><a class="viewcode-back" href="../../httplib2.html#httplib2.stations.StationArray.region_across">[docs]</a>    <span class="k">def</span> <span class="nf">region_across</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">curtime</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates the route across the region centers</span>
+<span class="sd">        :param curtime: CurTime() instance</span>
+<span class="sd">        :param result: Result() instance</span>
+<span class="sd">        :return: new CurTime() instance,</span>
+<span class="sd">         updated Result() instance</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">date</span> <span class="o">=</span> <span class="n">curtime</span><span class="o">.</span><span class="n">format_date</span><span class="p">()</span>
+        <span class="n">time</span> <span class="o">=</span> <span class="n">curtime</span><span class="o">.</span><span class="n">format_time</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">())):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">depart</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">()[</span><span class="n">attribute</span><span class="p">]</span><span class="o">.</span><span class="n">station_number</span><span class="p">()</span>
+                <span class="n">arrive</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">()[</span><span class="n">attribute</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">station_number</span><span class="p">()</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">make_response</span><span class="p">(</span><span class="n">depart</span><span class="p">,</span> <span class="n">arrive</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span>
+                <span class="n">route_info</span><span class="p">,</span> <span class="n">new_date</span> <span class="o">=</span> <span class="n">make_route</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">route_info</span><span class="p">)</span>
+                <span class="n">date</span> <span class="o">=</span> <span class="n">new_date</span><span class="o">.</span><span class="n">format_date</span><span class="p">()</span>
+                <span class="n">time</span> <span class="o">=</span> <span class="n">new_date</span><span class="o">.</span><span class="n">format_time</span><span class="p">()</span>
+            <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                <span class="n">depart</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">station_number</span><span class="p">()</span>
+                <span class="n">arrive</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">station_number</span><span class="p">()</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="n">make_response</span><span class="p">(</span><span class="n">depart</span><span class="p">,</span> <span class="n">arrive</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span>
+                <span class="n">route_info</span><span class="p">,</span> <span class="n">new_date</span> <span class="o">=</span> <span class="n">make_route</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">route_info</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">new_date</span><span class="p">,</span> <span class="n">result</span></div></div>
+
+
+<div class="viewcode-block" id="Station"><a class="viewcode-back" href="../../httplib2.html#httplib2.stations.Station">[docs]</a><span class="k">class</span> <span class="nc">Station</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class for station number representation</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">st_name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">st_num</span> <span class="o">=</span> <span class="n">number</span>
+
+<div class="viewcode-block" id="Station.station_name"><a class="viewcode-back" href="../../httplib2.html#httplib2.stations.Station.station_name">[docs]</a>    <span class="k">def</span> <span class="nf">station_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: name of the station</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">st_name</span></div>
+
+<div class="viewcode-block" id="Station.station_number"><a class="viewcode-back" href="../../httplib2.html#httplib2.stations.Station.station_number">[docs]</a>    <span class="k">def</span> <span class="nf">station_number</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :return: number of the station</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">st_num</span></div>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">st_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">st_num</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Author.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.0+</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

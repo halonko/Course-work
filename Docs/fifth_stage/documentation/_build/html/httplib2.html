@@ -1,0 +1,685 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>httplib2 package &#8212; Course-work-master  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="second_stage_example module" href="second_stage_example.html" />
+    <link rel="prev" title="ADT_Station module" href="ADT_Station.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="httplib2-package">
+<h1>httplib2 package<a class="headerlink" href="#httplib2-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-httplib2.input_data">
+<span id="httplib2-input-data-module"></span><h2>httplib2.input_data module<a class="headerlink" href="#module-httplib2.input_data" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="httplib2.input_data.check_input">
+<code class="descclassname">httplib2.input_data.</code><code class="descname">check_input</code><span class="sig-paren">(</span><em>start</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/input_data.html#check_input"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.input_data.check_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>checks whether user made any mistakes
+:param start: inputed string
+:return: start sity name, additional verbose</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="httplib2.input_data.get_input">
+<code class="descclassname">httplib2.input_data.</code><code class="descname">get_input</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/input_data.html#get_input"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.input_data.get_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the user input
+:return: start city name, list of needed regions</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-httplib2.regions">
+<span id="httplib2-regions-module"></span><h2>httplib2.regions module<a class="headerlink" href="#module-httplib2.regions" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="httplib2.regions.CrossRoute">
+<em class="property">class </em><code class="descclassname">httplib2.regions.</code><code class="descname">CrossRoute</code><span class="sig-paren">(</span><em>startpos='Київ'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/regions.html#CrossRoute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.regions.CrossRoute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#httplib2.stations.StationArray" title="httplib2.stations.StationArray"><code class="xref py py-class docutils literal notranslate"><span class="pre">httplib2.stations.StationArray</span></code></a></p>
+<p>Class for ukrainian raliway representation</p>
+<dl class="attribute">
+<dt id="httplib2.regions.CrossRoute.BREAKPOINTS">
+<code class="descname">BREAKPOINTS</code><em class="property"> = ['Львів', 'Одеса', 'Запоріжжя', 'Харків', 'Київ']</em><a class="headerlink" href="#httplib2.regions.CrossRoute.BREAKPOINTS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="httplib2.regions.CrossRoute.HEAD">
+<code class="descname">HEAD</code><em class="property"> = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0'}</em><a class="headerlink" href="#httplib2.regions.CrossRoute.HEAD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="httplib2.regions.CrossRoute.array">
+<code class="descname">array</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/regions.html#CrossRoute.array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.regions.CrossRoute.array" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Basic data structure</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="httplib2.regions.CrossRoute.get_all_stations">
+<code class="descname">get_all_stations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/regions.html#CrossRoute.get_all_stations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.regions.CrossRoute.get_all_stations" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">sorted list of main cities</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="httplib2.regions.DnieperRegion">
+<em class="property">class </em><code class="descclassname">httplib2.regions.</code><code class="descname">DnieperRegion</code><a class="reference internal" href="_modules/httplib2/regions.html#DnieperRegion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.regions.DnieperRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#httplib2.stations.StationArray" title="httplib2.stations.StationArray"><code class="xref py py-class docutils literal notranslate"><span class="pre">httplib2.stations.StationArray</span></code></a></p>
+<p>Class for Dnieper railway region representation</p>
+<dl class="attribute">
+<dt id="httplib2.regions.DnieperRegion.BREAKPOINTS">
+<code class="descname">BREAKPOINTS</code><em class="property"> = ['Запоріжжя', 'Дніпро-Головний']</em><a class="headerlink" href="#httplib2.regions.DnieperRegion.BREAKPOINTS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="httplib2.regions.DnieperRegion.HEAD">
+<code class="descname">HEAD</code><em class="property"> = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0'}</em><a class="headerlink" href="#httplib2.regions.DnieperRegion.HEAD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="httplib2.regions.DnieperRegion.array">
+<code class="descname">array</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/regions.html#DnieperRegion.array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.regions.DnieperRegion.array" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Basic data structure</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="httplib2.regions.LvivRegion">
+<em class="property">class </em><code class="descclassname">httplib2.regions.</code><code class="descname">LvivRegion</code><a class="reference internal" href="_modules/httplib2/regions.html#LvivRegion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.regions.LvivRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#httplib2.stations.StationArray" title="httplib2.stations.StationArray"><code class="xref py py-class docutils literal notranslate"><span class="pre">httplib2.stations.StationArray</span></code></a></p>
+<p>Class for Lviv railway region</p>
+<dl class="attribute">
+<dt id="httplib2.regions.LvivRegion.BREAKPOINTS">
+<code class="descname">BREAKPOINTS</code><em class="property"> = ['Львів', 'Івано-Франківськ', 'Чернівці', &quot;Кам'янець-Подільський&quot;, 'Хмельницький', 'Тернопіль', 'Львів', 'Рівне', 'Луцьк', 'Львів', 'Ужгород']</em><a class="headerlink" href="#httplib2.regions.LvivRegion.BREAKPOINTS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="httplib2.regions.LvivRegion.HEAD">
+<code class="descname">HEAD</code><em class="property"> = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0'}</em><a class="headerlink" href="#httplib2.regions.LvivRegion.HEAD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="httplib2.regions.LvivRegion.array">
+<code class="descname">array</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/regions.html#LvivRegion.array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.regions.LvivRegion.array" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Basic data structure</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="httplib2.regions.OdessaRegion">
+<em class="property">class </em><code class="descclassname">httplib2.regions.</code><code class="descname">OdessaRegion</code><a class="reference internal" href="_modules/httplib2/regions.html#OdessaRegion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.regions.OdessaRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#httplib2.stations.StationArray" title="httplib2.stations.StationArray"><code class="xref py py-class docutils literal notranslate"><span class="pre">httplib2.stations.StationArray</span></code></a></p>
+<p>Class for Odessa railway region representation</p>
+<dl class="attribute">
+<dt id="httplib2.regions.OdessaRegion.BREAKPOINTS">
+<code class="descname">BREAKPOINTS</code><em class="property"> = ['Одеса', 'Миколаїв', 'Херсон', 'Миколаїв', 'Черкаси']</em><a class="headerlink" href="#httplib2.regions.OdessaRegion.BREAKPOINTS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="httplib2.regions.OdessaRegion.HEAD">
+<code class="descname">HEAD</code><em class="property"> = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0'}</em><a class="headerlink" href="#httplib2.regions.OdessaRegion.HEAD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="httplib2.regions.OdessaRegion.array">
+<code class="descname">array</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/regions.html#OdessaRegion.array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.regions.OdessaRegion.array" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Basic data structure</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="httplib2.regions.SouthRegion">
+<em class="property">class </em><code class="descclassname">httplib2.regions.</code><code class="descname">SouthRegion</code><a class="reference internal" href="_modules/httplib2/regions.html#SouthRegion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.regions.SouthRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#httplib2.stations.StationArray" title="httplib2.stations.StationArray"><code class="xref py py-class docutils literal notranslate"><span class="pre">httplib2.stations.StationArray</span></code></a></p>
+<p>Class for Kharkiv railway region</p>
+<dl class="attribute">
+<dt id="httplib2.regions.SouthRegion.BREAKPOINTS">
+<code class="descname">BREAKPOINTS</code><em class="property"> = ['Харків', 'Суми', 'Конотоп', 'Київ', 'Полтава']</em><a class="headerlink" href="#httplib2.regions.SouthRegion.BREAKPOINTS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="httplib2.regions.SouthRegion.HEAD">
+<code class="descname">HEAD</code><em class="property"> = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0'}</em><a class="headerlink" href="#httplib2.regions.SouthRegion.HEAD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="httplib2.regions.SouthRegion.array">
+<code class="descname">array</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/regions.html#SouthRegion.array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.regions.SouthRegion.array" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Basic data structure</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="httplib2.regions.SouthWestRegion">
+<em class="property">class </em><code class="descclassname">httplib2.regions.</code><code class="descname">SouthWestRegion</code><a class="reference internal" href="_modules/httplib2/regions.html#SouthWestRegion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.regions.SouthWestRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#httplib2.stations.StationArray" title="httplib2.stations.StationArray"><code class="xref py py-class docutils literal notranslate"><span class="pre">httplib2.stations.StationArray</span></code></a></p>
+<p>Class for Kyiv railway region representation</p>
+<dl class="attribute">
+<dt id="httplib2.regions.SouthWestRegion.BREAKPOINTS">
+<code class="descname">BREAKPOINTS</code><em class="property"> = ['Київ', 'Біла Церква', 'Вінниця', 'Житомир', 'Коростень-Пз', 'Київ', 'Чернігів']</em><a class="headerlink" href="#httplib2.regions.SouthWestRegion.BREAKPOINTS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="httplib2.regions.SouthWestRegion.HEAD">
+<code class="descname">HEAD</code><em class="property"> = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0'}</em><a class="headerlink" href="#httplib2.regions.SouthWestRegion.HEAD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="httplib2.regions.SouthWestRegion.array">
+<code class="descname">array</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/regions.html#SouthWestRegion.array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.regions.SouthWestRegion.array" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Basic data structure</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-httplib2.returning">
+<span id="httplib2-returning-module"></span><h2>httplib2.returning module<a class="headerlink" href="#module-httplib2.returning" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="httplib2.returning.Return">
+<em class="property">class </em><code class="descclassname">httplib2.returning.</code><code class="descname">Return</code><a class="reference internal" href="_modules/httplib2/returning.html#Return"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.returning.Return" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for result representation</p>
+<dl class="method">
+<dt id="httplib2.returning.Return.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>route</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/returning.html#Return.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.returning.Return.add" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>route</strong> – adding RouteInfo instance to the list</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="httplib2.returning.RouteInfo">
+<em class="property">class </em><code class="descclassname">httplib2.returning.</code><code class="descname">RouteInfo</code><a class="reference internal" href="_modules/httplib2/returning.html#RouteInfo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.returning.RouteInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for information representation</p>
+<dl class="method">
+<dt id="httplib2.returning.RouteInfo.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/returning.html#RouteInfo.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.returning.RouteInfo.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="httplib2.returning.RouteInfo.get_train_route">
+<code class="descname">get_train_route</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/returning.html#RouteInfo.get_train_route"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.returning.RouteInfo.get_train_route" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds info to the
+:param data: dict of API response
+:return: None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="httplib2.returning.RouteInfo.information">
+<code class="descname">information</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/returning.html#RouteInfo.information"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.returning.RouteInfo.information" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="httplib2-route-maker-module">
+<h2>httplib2.route_maker module<a class="headerlink" href="#httplib2-route-maker-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-httplib2.route_search">
+<span id="httplib2-route-search-module"></span><h2>httplib2.route_search module<a class="headerlink" href="#module-httplib2.route_search" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="httplib2.route_search.make_response">
+<code class="descclassname">httplib2.route_search.</code><code class="descname">make_response</code><span class="sig-paren">(</span><em>depart</em>, <em>arrive</em>, <em>date</em>, <em>time</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/route_search.html#make_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.route_search.make_response" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>depart</strong> – departure station num</li>
+<li><strong>arrive</strong> – arrival station num</li>
+<li><strong>date</strong> – formatted departure date</li>
+<li><strong>time</strong> – formatted departure time</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="httplib2.route_search.make_route">
+<code class="descclassname">httplib2.route_search.</code><code class="descname">make_route</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/route_search.html#make_route"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.route_search.make_route" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> – dict of API response</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">RouteInfo() instance,</td>
+</tr>
+</tbody>
+</table>
+<p>CurTime() instance arrival</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="httplib2.route_search.search_routes">
+<code class="descclassname">httplib2.route_search.</code><code class="descname">search_routes</code><span class="sig-paren">(</span><em>station1_num</em>, <em>station2_num</em>, <em>date</em>, <em>time</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/route_search.html#search_routes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.route_search.search_routes" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>station1_num</strong> – number of departure station</li>
+<li><strong>station2_num</strong> – number of arrival station</li>
+<li><strong>date</strong> – formatted departure date</li>
+<li><strong>time</strong> – formatted departure time</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">dict of API response</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-httplib2.stations">
+<span id="httplib2-stations-module"></span><h2>httplib2.stations module<a class="headerlink" href="#module-httplib2.stations" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="httplib2.stations.Station">
+<em class="property">class </em><code class="descclassname">httplib2.stations.</code><code class="descname">Station</code><span class="sig-paren">(</span><em>name</em>, <em>number</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/stations.html#Station"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.stations.Station" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for station number representation</p>
+<dl class="method">
+<dt id="httplib2.stations.Station.station_name">
+<code class="descname">station_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/stations.html#Station.station_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.stations.Station.station_name" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">name of the station</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="httplib2.stations.Station.station_number">
+<code class="descname">station_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/stations.html#Station.station_number"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.stations.Station.station_number" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">number of the station</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="httplib2.stations.StationArray">
+<em class="property">class </em><code class="descclassname">httplib2.stations.</code><code class="descname">StationArray</code><a class="reference internal" href="_modules/httplib2/stations.html#StationArray"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.stations.StationArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="httplib2.stations.StationArray.HEAD">
+<code class="descname">HEAD</code><em class="property"> = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0'}</em><a class="headerlink" href="#httplib2.stations.StationArray.HEAD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="httplib2.stations.StationArray.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>station</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/stations.html#StationArray.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.stations.StationArray.add" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>station</strong> – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">appends informaition to the list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="httplib2.stations.StationArray.array">
+<code class="descname">array</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/stations.html#StationArray.array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.stations.StationArray.array" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Basic data structure</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="httplib2.stations.StationArray.get_station_num">
+<em class="property">static </em><code class="descname">get_station_num</code><span class="sig-paren">(</span><em>params</em>, <em>headers</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/stations.html#StationArray.get_station_num"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.stations.StationArray.get_station_num" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> – params for API,</td>
+</tr>
+</tbody>
+</table>
+<p>consists of name of the place
+:param headers: params of brouser
+:return: station number, or personal identifier</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="httplib2.stations.StationArray.get_stations">
+<code class="descname">get_stations</code><span class="sig-paren">(</span><em>st_list</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/stations.html#StationArray.get_stations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.stations.StationArray.get_stations" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>st_list</strong> – list of stations names</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">appends Station class instance
+to initialized list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="httplib2.stations.StationArray.get_to_another_city">
+<code class="descname">get_to_another_city</code><span class="sig-paren">(</span><em>st1</em>, <em>st2</em>, <em>time</em>, <em>result</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/stations.html#StationArray.get_to_another_city"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.stations.StationArray.get_to_another_city" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>st1</strong> – departure station</li>
+<li><strong>st2</strong> – arrival station</li>
+<li><strong>time</strong> – Curtime() instance,</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>represents departure time
+:param result: Result() instance
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="httplib2.stations.StationArray.region_across">
+<code class="descname">region_across</code><span class="sig-paren">(</span><em>curtime</em>, <em>result</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/stations.html#StationArray.region_across"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.stations.StationArray.region_across" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the route across the region centers
+:param curtime: CurTime() instance
+:param result: Result() instance
+:return: new CurTime() instance,</p>
+<blockquote>
+<div>updated Result() instance</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-httplib2.time_data">
+<span id="httplib2-time-data-module"></span><h2>httplib2.time_data module<a class="headerlink" href="#module-httplib2.time_data" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="httplib2.time_data.CurTime">
+<em class="property">class </em><code class="descclassname">httplib2.time_data.</code><code class="descname">CurTime</code><span class="sig-paren">(</span><em>year=2018</em>, <em>month=5</em>, <em>day=30</em>, <em>hour=16</em>, <em>minute=6</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/time_data.html#CurTime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.time_data.CurTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class for time representation</p>
+<dl class="method">
+<dt id="httplib2.time_data.CurTime.format_date">
+<code class="descname">format_date</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/time_data.html#CurTime.format_date"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.time_data.CurTime.format_date" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">making API-frendly interface</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="httplib2.time_data.CurTime.format_time">
+<code class="descname">format_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/time_data.html#CurTime.format_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.time_data.CurTime.format_time" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">API-needed representation of time</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="httplib2.time_data.CurTime.get_day">
+<code class="descname">get_day</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/time_data.html#CurTime.get_day"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.time_data.CurTime.get_day" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>string</strong> – gets only day from formatted date</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="httplib2.time_data.CurTime.is_smaller">
+<code class="descname">is_smaller</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/time_data.html#CurTime.is_smaller"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.time_data.CurTime.is_smaller" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> – day of month</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True/False in case of</td>
+</tr>
+</tbody>
+</table>
+<p>bigger or smaller self day</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="httplib2.time_data.CurTime.make_new_date">
+<code class="descname">make_new_date</code><span class="sig-paren">(</span><em>data</em>, <em>time</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/time_data.html#CurTime.make_new_date"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.time_data.CurTime.make_new_date" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>data</strong> – year, month, day</li>
+<li><strong>time</strong> – hour, minute</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">CurTime instance</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="httplib2.time_data.CurTime.reformat_date">
+<code class="descname">reformat_date</code><span class="sig-paren">(</span><em>formatted</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/time_data.html#CurTime.reformat_date"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.time_data.CurTime.reformat_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unpacks string to usable form of day, year and month
+:param formatted: string
+:return: year, month, day</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="httplib2.time_data.CurTime.reformat_time">
+<code class="descname">reformat_time</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/httplib2/time_data.html#CurTime.reformat_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#httplib2.time_data.CurTime.reformat_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unpacks string to usable form of hour and minute
+:param string: string of hour and minute
+:return: hour, minute</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-httplib2">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-httplib2" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">httplib2 package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-httplib2.input_data">httplib2.input_data module</a></li>
+<li><a class="reference internal" href="#module-httplib2.regions">httplib2.regions module</a></li>
+<li><a class="reference internal" href="#module-httplib2.returning">httplib2.returning module</a></li>
+<li><a class="reference internal" href="#httplib2-route-maker-module">httplib2.route_maker module</a></li>
+<li><a class="reference internal" href="#module-httplib2.route_search">httplib2.route_search module</a></li>
+<li><a class="reference internal" href="#module-httplib2.stations">httplib2.stations module</a></li>
+<li><a class="reference internal" href="#module-httplib2.time_data">httplib2.time_data module</a></li>
+<li><a class="reference internal" href="#module-httplib2">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="ADT_Station.html" title="previous chapter">ADT_Station module</a></li>
+      <li>Next: <a href="second_stage_example.html" title="next chapter">second_stage_example module</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/httplib2.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Author.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.0+</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/httplib2.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

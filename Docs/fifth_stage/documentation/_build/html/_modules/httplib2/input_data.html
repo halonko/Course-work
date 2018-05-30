@@ -1,0 +1,153 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>httplib2.input_data &#8212; Course-work-master  documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for httplib2.input_data</h1><div class="highlight"><pre>
+<div class="viewcode-block" id="get_input"><a class="viewcode-back" href="../../httplib2.html#httplib2.input_data.get_input">[docs]</a><span></span><span class="k">def</span> <span class="nf">get_input</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Gets the user input</span>
+<span class="sd">    :return: start city name, list of needed regions</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Greatings to traveller!&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Enter your city: (Львів, Київ, Харків, Одеса, Запоріжжя)&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;                 (Lviv, Kyiv, Kharkiv, Odessa, Zaporizzia)&#39;</span><span class="p">)</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">check_input</span><span class="p">(</span><span class="n">start</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Journey starts from </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">start</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">Do you wish to visit any region deeply?&#39;</span>
+          <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1"> if it`s Lviv, you will visit:&#39;</span>
+          <span class="s1">&#39; Івано-Франківськ, Чернівці, Тернопіль,&#39;</span>
+          <span class="s1">&#39;Рівне, Луцьк, Ужгород&#39;</span>
+          <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1"> if it`s Kyiv, you will visit:&#39;</span>
+          <span class="s1">&#39;Житомир, Чернігів, Хмельницький,&#39;</span>
+          <span class="s1">&#39;Вінниця, Козятин, Коростень&#39;</span>
+          <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1"> if it`s Odessa, you will visit:&#39;</span>
+          <span class="s1">&#39;Миколаїв , Херсон, Кропивницький,&#39;</span>
+          <span class="s1">&#39;Черкаси, Умань, Ізмаїл&#39;</span>
+          <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1"> if it`s Kharkiv, you will visit:&#39;</span>
+          <span class="s1">&#39;Полтава, Суми&#39;</span>
+          <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1"> if it`s Запоріжжя, you will visit: Дніпро&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1"> Choose one or more and press ENTER&#39;</span><span class="p">)</span>
+    <span class="n">deep_journey_regions</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">verbose</span> <span class="o">=</span> <span class="s1">&#39;   &#39;</span>
+    <span class="k">while</span> <span class="n">verbose</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">verbose</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+        <span class="n">check</span> <span class="o">=</span> <span class="n">check_input</span><span class="p">(</span><span class="n">verbose</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">check</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">deep_journey_regions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">check</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">check</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">continue</span>
+    <span class="k">return</span> <span class="n">start</span><span class="p">,</span> <span class="n">deep_journey_regions</span></div>
+
+
+<div class="viewcode-block" id="check_input"><a class="viewcode-back" href="../../httplib2.html#httplib2.input_data.check_input">[docs]</a><span class="k">def</span> <span class="nf">check_input</span><span class="p">(</span><span class="n">start</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    checks whether user made any mistakes</span>
+<span class="sd">    :param start: inputed string</span>
+<span class="sd">    :return: start sity name, additional verbose</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;Kyiv&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;Київ&#39;</span><span class="p">)</span> \
+            <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;Ky&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;kyiv&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;KYIV&#39;</span><span class="p">):</span>
+        <span class="n">verb</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;Київ&#39;</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;Lviv&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;l&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;Львів&#39;</span><span class="p">)</span> \
+            <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;Lv&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;lviv&#39;</span><span class="p">)</span> \
+            <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;LVIV &#39;</span><span class="p">):</span>
+        <span class="n">verb</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;Львів&#39;</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;Kharkiv&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;Харків&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;Kh&#39;</span><span class="p">)</span> \
+            <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;kharkiv&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;kh&#39;</span><span class="p">):</span>
+        <span class="n">verb</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;Харків&#39;</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;Odessa&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;Одеса&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span> \
+            <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;odessa&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;Od&#39;</span><span class="p">)</span> \
+            <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;ODESSA&#39;</span><span class="p">):</span>
+        <span class="n">verb</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;Одеса&#39;</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;Запоріжжя&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;Zaporizzia&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;z&#39;</span><span class="p">)</span> \
+            <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;zaporizzia&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;Za&#39;</span><span class="p">)</span> \
+            <span class="ow">or</span> <span class="p">(</span><span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;ZAPORIZZIA&#39;</span><span class="p">):</span>
+        <span class="n">verb</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;Запоріжжя&#39;</span>
+    <span class="k">elif</span> <span class="n">start</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">verb</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;Київ&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Your place is not in a list&#39;</span><span class="p">)</span>
+        <span class="n">verb</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;Київ&#39;</span>
+    <span class="k">return</span> <span class="n">start</span><span class="p">,</span> <span class="n">verb</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Author.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.0+</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
