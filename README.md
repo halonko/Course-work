@@ -13,12 +13,12 @@ Main route - that consists of all routes together.
 You will get - all departure times and arrival times, train numbers and travel time
 
 # Project structure
-Project has a main_fold folder which consists of 1 main program --->  'route_maker'  <---- that you need to run. 
+Project has a **httplib2** folder which consists of 1 main program --->  **route_maker**  <---- that you need to run. 
 Other folders contains helping classes and functions
 
 - input 
 
-    Functions -- get_input -- and -- **check_input** -- initial processing of inputed data.
+    Functions -- get_input -- and -- check_input -- initial processing of inputed data.
 
 - prosessing_API_funcs 
 
